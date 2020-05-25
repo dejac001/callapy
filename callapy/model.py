@@ -167,43 +167,43 @@ class Model:
     r"""
 
     :param V_in: initial volume, :math:`V_\text{in}`
-    :type V_in: input_data
+    :type V_in: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param d_in: initial density, :math:`\rho_\text{in}`
-    :type d_in: input_data
+    :type d_in: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param d_eq: equilibrium density, :math:`\rho_\text{eq}`
-    :type d_eq: input_data
+    :type d_eq: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param m: mass of zeolite, :math:`m`
-    :type m: input_data
+    :type m: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param CA_in: initial concentration of solute A, :math:`C_\text{A,in}`
-    :type CA_in: input_data
+    :type CA_in: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param CA_eq: equilibrium concentration of solute A, :math:`C_\text{A,eq}`
-    :type CA_eq: input_data
+    :type CA_eq: typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]
     :param d_A: estimated density of adsorbate used in calculating PF adsorption, defaults to None
-    :type d_A: input_data, optional
+    :type d_A: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param d_S: estimated density of solvent in pores in calculating PF adsoption, defaults to None
-    :type d_S: input_data, optional
+    :type d_S: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param V_units: units for volume, defaults to ""
-    :param V_units: str, optional
+    :type V_units: str, optional
     :param C_units: units for concentration, defaults to ""
-    :param C_units: str, optional
+    :type C_units: str, optional
     :param m_units: units for mass of solid, defaults to ""
-    :param m_units: str, optional
+    :type m_units: str, optional
     :param d_units: units for density, defaults to ""
-    :param d_units: str, optional
+    :type d_units: str, optional
     :param V_p: estimated pore volume within solid, defaults to None
-    :param V_p: float, optional
+    :type V_p: float, optional
     :param e_V_in: error of initial volume, defaults to last decimal point input from :attr:`.Model.V_in`
-    :type e_V_in: error_data, optional
+    :type e_V_in: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param e_d_in: error of initial density, defaults to last decimal point input from :attr:`.Model.d_in`
-    :type e_d_in: error_data, optional
+    :type e_d_in: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param e_d_eq: error of equilibrium density, defaults to last decimal point input from :attr:`.Model.d_eq`
-    :type e_d_eq: error_data, optional
+    :type e_d_eq: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param e_m: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.m`
-    :type e_m: error_data, optional
+    :type e_m: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param e_CA_in: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.CA_in`
-    :type e_CA_in: error_data, optional
+    :type e_CA_in: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
     :param e_CA_eq: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.CA_eq`
-    :type e_CA_eq: error_data, optional
+    :type e_CA_eq: typing.Optional[typing.Union[float, typing.List, typing.Tuple, typing.Generator, np.array]]
 
     """
 
