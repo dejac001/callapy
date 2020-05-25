@@ -65,6 +65,7 @@ The solvent loading calculated by the XS approach is expressed as
     Q_{\mathrm{S}}^{\mathrm{XS}} = \frac{V_{\mathrm{in}}\left[
         \rho_{\mathrm{in}}-\rho_{\mathrm{eq}}-
         \left(C_{\mathrm{A,in}}-C_{\mathrm{A,eq}}\right)\right]}{m}
+    :label: XS_QS
 
 Another option is to assume that no solvent (NS) adsorbs into the solid
 (i.e., only solute adsorbs).
@@ -150,6 +151,7 @@ while the solvent loading can be calculated as
     \frac{\rho_{\mathrm{S}}}{\rho_{\mathrm{A}}}\right)
     }
     \right)
+    :label: PF_QS
 
 """
 
@@ -192,15 +194,15 @@ class Model:
     :param V_p: float, optional
     :param e_V_in: error of initial volume, defaults to last decimal point input from :attr:`.Model.V_in`
     :type e_V_in: error_data, optional
-    :param e_d_in: error of initial density, defaults to last decimal point input from d_in
+    :param e_d_in: error of initial density, defaults to last decimal point input from :attr:`.Model.d_in`
     :type e_d_in: error_data, optional
-    :param e_d_eq: error of equilibrium density, defaults to last decimal point input from d_eq
+    :param e_d_eq: error of equilibrium density, defaults to last decimal point input from :attr:`.Model.d_eq`
     :type e_d_eq: error_data, optional
-    :param e_m: error of adsorbent mass, defaults to last decimal point input from e_m
+    :param e_m: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.m`
     :type e_m: error_data, optional
-    :param e_CA_in: error of adsorbent mass, defaults to last decimal point input from CA_in
+    :param e_CA_in: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.CA_in`
     :type e_CA_in: error_data, optional
-    :param e_CA_eq: error of adsorbent mass, defaults to last decimal point input from CA_eq
+    :param e_CA_eq: error of adsorbent mass, defaults to last decimal point input from :attr:`.Model.CA_eq`
     :type e_CA_eq: error_data, optional
 
     """
@@ -231,6 +233,8 @@ class Model:
     def eval_XS(self) -> typing.Tuple:
         r"""Excess adsorption model (XS)
 
+        The solute and solvent loadings are calculated by Equations :eq:`XS_QA` and :eq:`XS_QS`, respectively.
+
         :param kwargs: key-word arguments
         :return: (:math:`Q_\text{A}`, :math:`Q_\text{S}`, :math:`V_\text{eq}`)
         """
@@ -240,6 +244,8 @@ class Model:
 
     def eval_NS(self) -> typing.Tuple:
         r"""No-solvent adsorption model (NS)
+
+        The solute and solvent loadings are calculated by Equations :eq:`NS_QA` and :eq:`NS_QS`, respectively.
 
         :param kwargs: key-word arguments
         :return: (:math:`Q_\text{A}`, :math:`Q_\text{S}`, :math:`V_\text{eq}`)
@@ -252,6 +258,8 @@ class Model:
     def eval_VC(self):
         r"""Volume change by solute adsorption model (VC)
 
+        The solute and solvent loadings are calculated by Equations :eq:`VC_QA` and :eq:`VC_QS`, respectively.
+
         :param d_A: estimated adsorbed density of solute A, :math:`\rho_\text{A}`
         :param kwargs: key-word arguments
         :return: (:math:`Q_\text{A}`, :math:`Q_\text{S}`, :math:`V_\text{eq}`)
@@ -262,8 +270,10 @@ class Model:
         Q_S = (self.V_in * self.d_in - V_eq * self.d_eq - self.m * Q_A) / self.m
         return Q_A, Q_S, V_eq
 
-    def PF(self):
-        r"""Pore-filling adsorption model (PF)
+    def eval_PF(self):
+        r"""Pore-filling adsorption model (PF).
+
+        The solute and solvent loadings are calculated by Equations :eq:`PF_QA` and :eq:`PF_QS`, respectively.
 
         :param d_A: estimated adsorbed density of solute A, :math:`\rho_\text{A}`
         :param d_S: estimated adsorbed density of solute S, :math:`\rho_\text{S}`
