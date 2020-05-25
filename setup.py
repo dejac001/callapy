@@ -5,7 +5,7 @@ with open('README.md', 'r') as f:
 
 setuptools.setup(
     name="callapy",
-    version="0.0.1",
+    version="0.0.2",
     author="Robert F. DeJaco",
     author_email="dejac001@umn.edu",
     description="Calculating the amount adsorbed from liquid-phase adsorption measurements",
