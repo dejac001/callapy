@@ -14,7 +14,6 @@ setuptools.setup(
     url="https://github.com/dejac001/callapy",
     packages=['callapy'],
     classifiers=[
-        "Development Status:: 3 - Alpha",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
