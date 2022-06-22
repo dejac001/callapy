@@ -21,5 +21,5 @@ setuptools.setup(
         "Topic :: Scientific/Engineering",
     ],
     python_requires='>=3.6',
-    install_requires=["matplotlib==3.2.1", "numpy==1.18.4", "pandas==1.0.3", "Pint==0.11"]
+    install_requires=["matplotlib==3.2.1", "numpy==1.22.0", "pandas==1.0.3", "Pint==0.11"]
 )
